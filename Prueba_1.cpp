@@ -59,3 +59,15 @@ int main()
     • Salir: Servirá para dar por concluido el programa
     eso mismo
 */
+Class Arreglo{
+    public:
+        int n;
+        int max;
+        char v;
+
+        Arreglo(int mx) {
+            this->max = mx;
+            v* = new char[max];
+            n = -1;
+        }
+}
