@@ -57,4 +57,5 @@ int main()
 
 /*
     • Salir: Servirá para dar por concluido el programa
+    eso mismo
 */
