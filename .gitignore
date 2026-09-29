@@ -1,0 +1,18 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/x64/Debug/Prueba_1.log
+/x64/Debug/Prueba_1.tlog/link.write.1.tlog
+/x64/Debug/Prueba_1.tlog/link.secondary.1.tlog
+/x64/Debug/Prueba_1.tlog/link.read.1.tlog
+/x64/Debug/Prueba_1.tlog/link.command.1.tlog
+/x64/Debug/Prueba_1.tlog/CL.write.1.tlog
+/x64/Debug/Prueba_1.tlog/CL.read.1.tlog
+/x64/Debug/Prueba_1.tlog/Cl.items.tlog
+/x64/Debug/Prueba_1.tlog
+/x64/Debug/Prueba_1.cpp.obj.dt.d.json
+/x64/Debug/Prueba_1.cpp.obj.dt.module.json
+/x64/Debug/Prueba_1.cpp.obj.dt.module.json.command
+/x64/Debug/Prueba_1.obj
+/x64/Debug
