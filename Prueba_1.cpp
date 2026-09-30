@@ -57,4 +57,32 @@ int main()
 
 /*
     • Salir: Servirá para dar por concluido el programa
+    eso mismo
 */
+Class Arreglo{
+    public:
+        int n;
+        int max;
+        char *v;
+
+        Arreglo(int mx) {
+            this->max = mx;
+            v = new char[max];
+            n = -1;
+        }
+
+		Insertar(char c) {
+			if (n == max - 1) {
+				std::cout << "El arreglo esta lleno\n";
+			}
+			else {
+                int i = n;
+				while (i >= 0 && v[i] > c) {
+					v[i + 1] = v[i];
+					i--;
+				}
+				i++;
+				v[i] = c;
+			}
+		}
+}
