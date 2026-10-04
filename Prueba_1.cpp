@@ -29,7 +29,7 @@ public:
         }
     }
 
-    int Modificar(char c) {
+    int Modificar(char c, char newChar) { //isa
 		int R = Buscar(c);
 
         if (R == -1) {
@@ -40,7 +40,7 @@ public:
 		return R;
     }
 
-	int Buscar(char c) {
+	int Buscar(char c) { //isa
 
         for (int i = 0; i <= n; i++)
         {
@@ -354,16 +354,27 @@ int main()
 				break;
 			}
 			else {
-				
+				std::cout << "Ingrese la letra a modificar: ";
+				char oldChar;
+				std::cin >> oldChar;
+				std::cout << "Ingrese la nueva letra: ";
+				char letra_modified;
+				std::cin >> letra_modified;
+				int modifiedPos = arreglo.Modificar(oldChar, letra_modified);
+				if (modifiedPos != -1) {
+					std::cout << "La letra '" << oldChar << "' ha sido modificada por '" << letra_modified	 << "' en la posición " << modifiedPos << "\n";
+				}
+				else {
+					std::cout << "La letra '" << oldChar << "' no se encuentra en el arreglo.\n";
+				}
 			}
-			
 			break;
 		case 7:
             std::cout << "Materia: Estructuras de Datos\n";
             std::cout << "Integrantes:\n";
             std::cout << "Nombre: Carlos Emmanuel Renteria Najera, Matrícula: idk\n";
             std::cout << "Nombre: Jorge Emilio Sanchez Sifuentes, Matrícula: 25420014\n";
-			std::cout << "Nombre: Isabella, Matrícula: idk\n";
+			std::cout << "Nombre: Isabella Guadalupe Salas Ramirez, Matrícula: 24170045\n";
             break;
         case 8:
 			std::cout << "Saliendo del programa... Gracias!!!\n";
