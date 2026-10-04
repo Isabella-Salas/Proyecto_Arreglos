@@ -1,11 +1,15 @@
 // Prueba_1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 #include <iostream>
+#include <cctype>
 
 class Arreglo {
 public:
     int n;
     int max;
     char* v;
+
+	Arreglo() {
+	}
 
     Arreglo(int mx) {
         this->max = mx;
@@ -20,12 +24,13 @@ public:
         }
         else {
             int i = n;
-            while (i >= 0 && v[i] > c) {
+            while (i >= 0 && toupper(v[i]) > toupper(c)) {
                 v[i + 1] = v[i];
                 i--;
             }
             i++;
             v[i] = c;
+			n++;
         }
     }
 
@@ -80,15 +85,10 @@ public:
 	int BusquedaBinaria(char c) {
 		int inicio = 0;
 		int fin = n;
-		int ciclos = 0;
-        int cv = BuscarValor(c);
-		int medv;
 		int medio;
 
 		while (inicio <= fin) {
-			ciclos++;
 			medio = (inicio + fin) / 2;
-			medv = BuscarValor(v[medio]);
 			if (v[medio] == c) {
 				return medio;
 			}
@@ -100,172 +100,7 @@ public:
 			}
 		}
 		return -1;
-	})
-
-	int BuscarValor(char c) {
-		switch (c) {
-		case 'A':
-			return 1;
-			break;
-		case 'a':
-			return 2;
-			break;
-		case 'B':
-			return 3;
-			break;
-		case 'b':
-			return 4;
-			break;
-		case 'C':
-			return 5;
-			break;
-		case 'c':
-			return 6;
-			break;
-		case 'D':
-			return 7;
-			break;
-		case 'd':
-			return 8;
-			break;
-		case 'E':
-			return 9;
-			break;
-		case 'e':
-			return 10;
-			break;
-		case 'F':
-			return 11;
-			break;
-		case 'f':
-			return 12;
-			break;
-		case 'G':
-			return 13;
-			break;
-		case 'g':
-			return 14;
-			break;
-		case 'H':
-			return 15;
-			break;
-		case 'h':
-			return 16;
-			break;
-		case 'I':
-			return 17;
-			break;
-		case 'i':
-			return 18;
-			break;
-		case 'J':
-			return 19;
-			break;
-		case 'j':
-			return 20;
-			break;
-		case 'K':
-			return 21;
-			break;
-		case 'k':
-			return 22;
-			break;
-		case 'L':
-			return 23;
-			break;
-		case 'l':
-			return 24;
-			break;
-		case 'M':
-			return 25;
-			break;
-		case 'm':
-			return 26;
-			break;
-		case 'N':
-			return 27;
-			break;
-		case 'n':
-			return 28;
-			break;
-		case 'O':
-			return 29;
-			break;
-		case 'o':
-			return 30;
-			break;
-		case 'P':
-			return 31;
-			break;
-		case 'p':
-			return 32;
-			break;
-		case 'Q':
-			return 33;
-			break;
-		case 'q':
-			return 34;
-			break;
-		case 'R':
-			return 35;
-			break;
-		case 'r':
-			return 36;
-			break;
-		case 'S':
-			return 37;
-			break;
-		case 's':
-			return 38;
-			break;
-		case 'T':
-			return 39;
-			break;
-		case 't':
-			return 40;
-			break;
-		case 'U':
-			return 41;
-			break;
-		case 'u':
-			return 42;
-			break;
-		case 'V':
-			return 43;
-			break;
-		case 'v':
-			return 44;
-			break;
-		case 'W':
-			return 45;
-			break;
-		case 'w':
-			return 46;
-			break;
-		case 'X':
-			return 47;
-			break;
-		case 'x':
-			return 48;
-			break;
-		case 'Y':
-			return 49;
-			break;
-		case 'y':
-			return 50;
-			break;
-		case 'Z':
-			return 51;
-			break;
-		case 'z':
-			return 52;
-			break;
-		default:
-			std::cout << "Caracter no valido, Pruebe con el abecedario (AaBbCc...XxYyZz)\n";
-			return -1;
-			break;
 	}
-};
 
 
 int main()
