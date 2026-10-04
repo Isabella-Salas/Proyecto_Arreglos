@@ -11,6 +11,7 @@ int main()
 
 //REGLASSSS -> Siempre que el programa acabe de mostrar los resultados de una operación deberá volver al menú de inicio segun si es visual o consola. y esta prohibido utilizar funciones de ordenamiento,
 
+
 /*
     Inicializar / Borrar arreglo : Esta corre una rutina para dejar el arreglo sin caracteres.Aquí
     aplica un borrado lógico, pueden simplemente recorrer el apuntador de elementos “N”.
