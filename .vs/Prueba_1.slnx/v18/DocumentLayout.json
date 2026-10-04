@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Memer\\source\\repos\\Proyecto_Arreglos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E0F8BA8C-37DB-49C3-8871-BEE2E1D35F65}|Prueba_1.vcxproj|C:\\Users\\Memer\\source\\repos\\Proyecto_Arreglos\\Prueba_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E0F8BA8C-37DB-49C3-8871-BEE2E1D35F65}|Prueba_1.vcxproj|solutionrelative:Prueba_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Prueba_1.cpp",
+              "DocumentMoniker": "C:\\Users\\Memer\\source\\repos\\Proyecto_Arreglos\\Prueba_1.cpp",
+              "RelativeDocumentMoniker": "Prueba_1.cpp",
+              "ToolTip": "C:\\Users\\Memer\\source\\repos\\Proyecto_Arreglos\\Prueba_1.cpp",
+              "RelativeToolTip": "Prueba_1.cpp",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAFgAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-09-30T15:21:39.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
