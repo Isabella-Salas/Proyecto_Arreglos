@@ -1,6 +1,4 @@
 // Prueba_1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
 #include <iostream>
 
 int main()
@@ -10,7 +8,6 @@ int main()
 
 
 //REGLASSSS -> Siempre que el programa acabe de mostrar los resultados de una operación deberá volver al menú de inicio segun si es visual o consola. y esta prohibido utilizar funciones de ordenamiento,
-
 /*
     Inicializar / Borrar arreglo : Esta corre una rutina para dejar el arreglo sin caracteres.Aquí
     aplica un borrado lógico, pueden simplemente recorrer el apuntador de elementos “N”.
@@ -86,4 +83,25 @@ public:
             v[i] = c;
         }
     }
+    int Modificar(char c) {
+		int R = Buscar(c);
+
+        if (R == -1) {
+            return R;
+        }
+		std::cout << "Ingrese el nuevo caracter: ";
+        std::cin >> v[R];
+		return R;
+    }
+	int Buscar(char c) {
+
+        for (int i = 0; i <= n; i++)
+        {
+            if (v[i] == c) {
+				return i; 			
+                i++;
+            }
+			return -1;
+        }
+	}
 };
