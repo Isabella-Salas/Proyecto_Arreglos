@@ -94,6 +94,14 @@ public:
 		return R;
     }
 	int Buscar(char c) {
-		int i = 0;
+
+        for (int i = 0; i <= n; i++)
+        {
+            if (v[i] == c) {
+				return i; 			
+                i++;
+            }
+			return -1;
+        }
 	}
 };
