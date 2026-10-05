@@ -36,12 +36,10 @@ public:
 	}
 
 	int Modificar(char c, char newChar) { //isa
-		int R = Buscar(c);
-
-		if (R == -1) {
-			return R;
+		int R = Eliminar(c);
+		if (R != -1) {
+			Insertar(newChar);
 		}
-		v[R] = newChar;
 		return R;
 	}
 
@@ -56,7 +54,6 @@ public:
 			{
 				return - 1;
 			}
-			
 		}
 		return -1;
 	}
@@ -66,7 +63,7 @@ public:
 		if (R == -1) {
 			return R;
 		}
-		for (int i = R; i < n - 1;) {
+		for (int i = R; i <= n - 1;) {
 			v[i] = v[i + 1];
 			i++;
 		}
@@ -96,7 +93,7 @@ public:
 			}
 			else {
 				fin = medio - 1;
-			}
+			} 
 		}
 		return -1;
 	}
