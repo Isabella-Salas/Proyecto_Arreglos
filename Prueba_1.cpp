@@ -41,8 +41,7 @@ public:
 		if (R == -1) {
 			return R;
 		}
-		std::cout << "Ingrese el nuevo caracter: ";
-		std::cin >> v[R];
+		v[R] = newChar;
 		return R;
 	}
 
