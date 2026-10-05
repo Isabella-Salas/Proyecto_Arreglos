@@ -1,60 +1,65 @@
 // Prueba_1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 #include <iostream>
 #include <cctype>
+using namespace std;
 
 class Arreglo {
 public:
-    int n;
-    int max;
-    char* v;
+	int n;
+	int max;
+	char* v;
 
 	Arreglo() {
 	}
 
-    Arreglo(int mx) {
-        this->max = mx;
-        v = new char[max];
-        n = -1;
-    }
+	Arreglo(int mx) {
+		this->max = mx;
+		v = new char[max];
+		n = -1;
+	}
 
-    void Insertar(char c) {
+	void Insertar(char c) {
 
-        if (n == max - 1) {
-            std::cout << "El arreglo esta lleno\n";
-        }
-        else {
-            int i = n;
-            while (i >= 0 && toupper(v[i]) > toupper(c)) {
-                v[i + 1] = v[i];
-                i--;
-            }
-            i++;
-            v[i] = c;
+		if (n == max - 1) {
+			std::cout << "El arreglo esta lleno\n";
+		}
+		else {
+			int i = n;
+			while (i >= 0 && tolower(v[i]) > tolower(c) || (tolower(v[i]) == tolower(c) &&	v[i] > c)) { 
+				v[i + 1] = v[i];
+				i--;
+			}
+			i++;
+			v[i] = c;
 			n++;
-        }
-    }
+		}
+	}
 
-    int Modificar(char c, char newChar) { //isa
+	int Modificar(char c, char newChar) { //isa
 		int R = Buscar(c);
 
-        if (R == -1) {
-            return R;
-        }
+		if (R == -1) {
+			return R;
+		}
 		std::cout << "Ingrese el nuevo caracter: ";
-        std::cin >> v[R];
+		std::cin >> v[R];
 		return R;
-    }
+	}
 
 	int Buscar(char c) { //isa
 
-        for (int i = 0; i <= n; i++)
-        {
-            if (v[i] == c) {
-				return i; 			
-                i++;
-            }
-			return -1;
-        }
+		for (int i = 0; i <= n; i++)
+		{
+			if (v[i] == c) {
+				return i;
+			}
+			if (tolower(v[i]) > tolower(c) || (tolower(v[i]) == tolower(c) && v[i] > c))
+			{
+				return - 1;
+			}
+			
+		}
+		return -1;
 	}
 
 	int Eliminar(char c) {
@@ -62,7 +67,7 @@ public:
 		if (R == -1) {
 			return R;
 		}
-		for (int i = R; i < n-1;) {
+		for (int i = R; i < n - 1;) {
 			v[i] = v[i + 1];
 			i++;
 		}
@@ -77,11 +82,6 @@ public:
 		std::cout << "\n";
 	}
 
-	void Inicializar() {
-		n = -1;
-		std::cout << "Arreglo Inicializado\n";
-	}
-
 	int BusquedaBinaria(char c) {
 		int inicio = 0;
 		int fin = n;
@@ -92,7 +92,7 @@ public:
 			if (v[medio] == c) {
 				return medio;
 			}
-			else if (medv < cv) {
+			else if (tolower(v[medio]) < tolower(c) || (tolower(v[medio]) == tolower(c) && v[medio] < c)) {
 				inicio = medio + 1;
 			}
 			else {
@@ -102,17 +102,19 @@ public:
 		return -1;
 	}
 
+};
+
 
 int main()
 {
-	Arreglo arreglo(20);
+	Arreglo arreglo;
 	int opcion = 0;
 	bool continuar = true;
 
 	std::cout << "Bienvenido al programa de manejo de arreglos ordenados con Chars!!\n";
 	do {
 		std::cout << "Menu de opciones:\n";
-		std::cout << "1) Borrar arreglo\n";
+		std::cout << "1) Inicializar/Borrar arreglo\n";
 		std::cout << "2) Mostrar arreglo\n";
 		std::cout << "3) Buscar\n";
 		std::cout << "4) Insertar\n";
@@ -125,7 +127,29 @@ int main()
 
 		switch (opcion) {
 		case 1:
-			arreglo.Inicializar();
+			cout << "quieres inicializar o borrar el arreglo? \n";
+			cout << "1) Inicializar\n";
+			cout << "2) Borrar\n";
+			cout << "Seleccione una opción: ";
+			int opcionBorrar;
+			cin >> opcionBorrar;
+			if (opcionBorrar == 1)
+			{
+				cout << "Ingrese el tamaño del arreglo: ";
+				int tamano;
+				cin >> tamano;
+				arreglo = Arreglo(tamano);
+			}
+			else
+			{
+				if (opcionBorrar == 2)
+				{
+					arreglo.n = -1;
+					break;
+				}
+				cout << "Opción inválida. Intente de nuevo.\n";
+			}
+
 			break;
 		case 2:
 			arreglo.Mostrar();
@@ -142,14 +166,14 @@ int main()
 			std::cout << "2) Búsqueda binaria\n";
 			std::cin >> opcionBusqueda;
 			switch (opcionBusqueda) {
-				case 1:
-					std::cout << "Búsqueda lineal seleccionada.\n";
-					pos = arreglo.Buscar(c);
-					break;
-				case 2:
-					std::cout << "Búsqueda binaria seleccionada.\n";
-					pos = arreglo.BusquedaBinaria(c);
-					break;
+			case 1:
+				std::cout << "Búsqueda lineal seleccionada.\n";
+				pos = arreglo.Buscar(c);
+				break;
+			case 2:
+				std::cout << "Búsqueda binaria seleccionada.\n";
+				pos = arreglo.BusquedaBinaria(c);
+				break;
 			}
 			if (pos != -1) {
 				std::cout << "La letra '" << c << "' se encuentra en la posición " << pos << "\n";
@@ -181,7 +205,7 @@ int main()
 					std::cout << "La letra '" << charToDelete << "' no se encuentra en el arreglo.\n";
 				}
 			}
-			
+
 			break;
 		case 6:
 			if (arreglo.n == -1) {
@@ -197,7 +221,7 @@ int main()
 				std::cin >> letra_modified;
 				int modifiedPos = arreglo.Modificar(oldChar, letra_modified);
 				if (modifiedPos != -1) {
-					std::cout << "La letra '" << oldChar << "' ha sido modificada por '" << letra_modified	 << "' en la posición " << modifiedPos << "\n";
+					std::cout << "La letra '" << oldChar << "' ha sido modificada por '" << letra_modified << "' en la posición " << modifiedPos << "\n";
 				}
 				else {
 					std::cout << "La letra '" << oldChar << "' no se encuentra en el arreglo.\n";
@@ -205,22 +229,21 @@ int main()
 			}
 			break;
 		case 7:
-            std::cout << "Materia: Estructuras de Datos\n";
-            std::cout << "Integrantes:\n";
-            std::cout << "Nombre: Carlos Emmanuel Renteria Najera, Matrícula: idk\n";
-            std::cout << "Nombre: Jorge Emilio Sanchez Sifuentes, Matrícula: 25420014\n";
+			std::cout << "Materia: Estructuras de Datos\n";
+			std::cout << "Integrantes:\n";
+			std::cout << "Nombre: Carlos Emmanuel Renteria Najera, Matrícula: 25420033\n";
+			std::cout << "Nombre: Jorge Emilio Sanchez Sifuentes, Matrícula: 25420014\n";
 			std::cout << "Nombre: Isabella Guadalupe Salas Ramirez, Matrícula: 24170045\n";
-            break;
-        case 8:
+			break;
+		case 8:
 			std::cout << "Saliendo del programa... Gracias!!!\n";
-            continuar = false;
-            break;
-        default:
-            std::cout<<"Opción inválida. Intente de nuevo.\n";
-        }
-    } while (continuar);
-}
-
+			continuar = false;
+			break;
+		default:
+			std::cout << "Opción inválida. Intente de nuevo.\n";
+		}
+	} while (continuar);
+};
 
 //REGLASSSS -> Siempre que el programa acabe de mostrar los resultados de una operación deberá volver al menú de inicio segun si es visual o consola. y esta prohibido utilizar funciones de ordenamiento,
 /*
